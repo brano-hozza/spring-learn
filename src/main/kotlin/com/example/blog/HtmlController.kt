@@ -14,13 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.server.ResponseStatusException
 
 @Controller
-class HtmlController(private val repository: ArticleRepository, private val userRepository: UserRepository) {
-
+class HtmlController(private val repository: ArticleRepository) {
     @GetMapping("/")
-    fun blog(model: Model): String {
-        model["title"] = "Blog"
-        model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
-        return "blog"
+    fun login(model: Model): String{
+        model["title"] = "Login"
+        return "home"
     }
 
     @GetMapping("/article/{slug}")
@@ -33,29 +31,8 @@ class HtmlController(private val repository: ArticleRepository, private val user
         model["article"] = article
         return "article"
     }
-    @GetMapping("/login")
-    fun login(model: Model): String{
-        model["title"] = "Login"
-        return "login"
-    }
-    @PostMapping("/profile")
-    fun loginP(@JsonFormat user: NewUser , model: Model): String{
-        model["title"] = "Profile"
-        val userFound:User? = userRepository.findByUsername(user.username)
-        if (userFound?.password == user.password) {
-            model["user"] = user
-            return "profile"
-        }
-        return "404"
-    }
-    @PostMapping("/register")
-    fun registerP(@JsonFormat newUser: NewUser , model: Model): String{
-        model["title"] = "Profile"
-        val user = User(newUser.username, "new", "", newUser.password)
-        userRepository.save(user)
-        model["user"] = user
-        return "profile"
-    }
+
+
 
 
 }
