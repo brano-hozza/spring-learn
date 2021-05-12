@@ -1,4 +1,4 @@
-package com.example.blog.models
+package com.glatoo.blog.models
 
 import com.example.blog.format
 import com.example.blog.toSlug

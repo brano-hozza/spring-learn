@@ -1,4 +1,4 @@
-package com.example.blog
+package com.glatoo.blog
 
 import org.springframework.boot.Banner
 import org.springframework.boot.autoconfigure.SpringBootApplication

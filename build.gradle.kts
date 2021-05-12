@@ -9,7 +9,7 @@ plugins {
 	kotlin("plugin.allopen") version "1.4.32"
 }
 
-group = "com.example"
+group = "com.glatoo"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 

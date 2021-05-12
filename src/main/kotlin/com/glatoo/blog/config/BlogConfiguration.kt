@@ -1,7 +1,7 @@
-package com.example.blog
+package com.glatoo.blog.config
 
-import com.example.blog.models.Article
-import com.example.blog.models.User
+import com.glatoo.blog.repositories.ArticleRepository
+import com.glatoo.blog.repositories.UserRepository
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -11,7 +11,8 @@ class BlogConfiguration {
 
     @Bean
     fun databaseInitializer(userRepository: UserRepository,
-                            articleRepository: ArticleRepository) = ApplicationRunner {
+                            articleRepository: ArticleRepository
+    ) = ApplicationRunner {
 
 
     }
